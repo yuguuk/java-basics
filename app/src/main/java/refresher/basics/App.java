@@ -39,11 +39,22 @@ public class App {
         int result = method1();
         System.out.println(result);
 
-        demoStringBufferAndBuilder();
+        demoStringBufferAndBuilder(/**
+         * 
+         */
+        );
 
         comparableDemo();
     }
 
+    /**
+     * Cover topics relevant to String (immutable), StringBuffer (mutable, and thread-safe)
+     * and StringBuilder(mutable and not thread-safe).
+     * 
+     * Relevant knowledge: two objects that are equal due to the equals method, should have the 
+     * same hashCode, however having the same hashCode need not mean equal as a result of a call
+     * to the equals method.
+     */
     static void demoStringBufferAndBuilder() {
         
         StringBuilder sb1 = new StringBuilder("hello");
