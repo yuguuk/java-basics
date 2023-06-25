@@ -8,6 +8,16 @@ import java.util.Collections;
 import java.util.List;
 
 public class App {
+    static List<Employee> empList = new ArrayList<>();
+    {
+    empList.add(new Employee(4, "Dave", 25, 28000));
+    empList.add(new Employee(20, "Mike", 20, 10000));
+    empList.add(new Employee(9, "Abhi", 32, 5000));
+    empList.add(new Employee(1, "Lisa", 40, 19000));
+    empList.add(new Employee(15, "Lisa", 25, 25000));
+    empList.add(new Employee(8, "Lisa", 30, 20000));
+    }
+
     public String getGreeting() {
         return "Hello World!";
     }
@@ -15,7 +25,6 @@ public class App {
     public static int method1()
     {
         try {
-            int a = 22/0;
             return 1;
         } catch (Exception e) {
             return 2;
@@ -44,7 +53,16 @@ public class App {
          */
         );
 
+        
+        System.out.println("\nComparable Demo:");
         comparableDemo();
+        System.out.println("\nComparator Demo:");
+        comparatorDemo();
+
+        System.out.println("Nested Classes");
+        System.out.println("================================");
+        OuterClass.InnerClass innerClassObject = new OuterClass.InnerClass();
+        innerClassObject.print();
     }
 
     /**
@@ -68,13 +86,17 @@ public class App {
     }
 
     static void comparableDemo(){
-        List<Employee> empList = new ArrayList<>();
-        empList.add(new Employee(4, "Dave", 25, 28000));
-        empList.add(new Employee(20, "Mike", 25, 10000));
-        empList.add(new Employee(9, "Abhi", 25, 5000));
-        empList.add(new Employee(1, "Lisa", 25, 19000));
-
         Collections.sort(empList);
         System.out.println(empList);
     }
+
+    public static void comparatorDemo() {
+        System.out.println("Comparing by Employee Name: \n");
+        Collections.sort(empList, new NameComparator());
+        System.out.println(empList);
+        System.out.println("Comparing by Employee Salary: \n");
+        Collections.sort(empList, new SalaryComparator());
+        System.out.println(empList);
+    }
+
 }

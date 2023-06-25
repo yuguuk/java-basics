@@ -1,7 +1,5 @@
 package refresher.basics;
 
-import java.io.IOException;
-
 public class OOP {
     
 }
@@ -30,8 +28,7 @@ class Dog extends Canine{
 
     @Override
     void move() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'move'");
+        System.out.println("Canine moves!");
     }
     
 }

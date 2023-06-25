@@ -1,5 +1,7 @@
 package refresher.basics;
 
+import java.util.Comparator;
+
 public class Employee implements Comparable<Employee>{
     private int id;
     private String name;
@@ -52,8 +54,39 @@ public class Employee implements Comparable<Employee>{
 
     @Override
     public String toString() {
-        return "Employee [id=" + id + ", name=" + name + ", age=" + age + ", salary=" + salary + "] \n";
+        return "Employee {id=" + id + ", name=" + name + ", age=" + age + ", salary=" + salary + "} \n";
     }
 
     
+}
+
+class NameComparator implements Comparator<Employee>{
+
+    @Override
+    public int compare(Employee emp1, Employee emp2) {
+        return emp1.getName().compareTo(emp2.getName());
+    }
+
+}
+
+class SalaryComparator implements Comparator<Employee>{
+
+    @Override
+    public int compare(Employee emp1, Employee emp2) {
+        return (int)(emp1.getSalary() - emp2.getSalary());
+    }
+
+}
+
+class NameAgeComparator implements Comparator<Employee>{
+
+    @Override
+    public int compare(Employee emp1, Employee emp2) {
+        int flag = emp1.getName().compareTo(emp2.getName());
+        if(flag == 0){
+            flag = emp1.getAge() - emp2.getAge();
+        }
+        return flag;
+    }
+
 }
